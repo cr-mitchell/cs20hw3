@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="htmlstyle.css">
+    <title>Joe's Hotdogs</title>
+</head>
+<body>
+    <h1>Joe's Hotdog Stand Order Receipt</h1>
+    <script>
+
+        x = prompt("How many hot dogs would you like?");
+        y = prompt("How many order of fries would you like?");
+        z = prompt("How many sodas would you like?");
+
+        dogs = parseFloat(x);
+        fries = parseFloat(y);
+        soda = parseFloat(z);
+
+        totaldogs = dogs * 4.25;
+        totalfries = fries * 2.60;
+        totalsoda = soda * 1.50;
+
+        subtotal = totaldogs + totalfries + totalsoda;
+        subtotal = Math.round(subtotal * 100) / 100;
+
+        if (subtotal >= 20.00) {
+            discount = subtotal * 0.10;
+            discounttotal = subtotal - discount; 
+
+            tax = discounttotal * 0.0625;
+            total = discounttotal + tax;
+        
+            total = Math.round(total * 100) / 100;
+            discount = Math.round(discount * 100) / 100;
+            tax = Math.round(tax * 100) / 100;
+        } else {
+            tax = subtotal * 0.0625;
+            total = subtotal + tax;
+
+            total = Math.round(total * 100) / 100;
+            tax = Math.round(tax * 100) / 100;
+        }
+
+        document.write("<p>Hotdogs Ordered: " + dogs + "</p>");
+        document.write("<p>Fries Ordered: " + fries + "</p>");
+        document.write("<p>Sodas Ordered: " + soda + "</p>");
+        document.write("<p>Subtotals: $" + subtotal + "</p>");
+
+        if (subtotal >= 20.00) {
+           document.write("<p>Discount: $" + discount + "</p>");
+        }
+
+        document.write("<p>Tax: $" + tax + "</p>");
+        document.write("<p>Total: $" + total + "</p>"); 
+    </script>
+</body>
+</html>
